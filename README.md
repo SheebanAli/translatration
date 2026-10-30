@@ -178,11 +178,11 @@ Set the exact IDs already configured in your `.env` file:
 ```bash
 # 1. Set custom Role ID
 vault write auth/approle/role/translation-role/role-id \
-    role_id="d94a4b18-8117-3da2-c3dc-58fcb2828451"
+    role_id=""
 
 # 2. Set custom Secret ID
 vault write auth/approle/role/translation-role/custom-secret-id \
-    secret_id="f8090830-efac-6f36-4e00-e31186c423c2"
+    secret_id=""
 ```
 
 #### Option B: Generate New Credentials
@@ -225,8 +225,8 @@ Run these commands to verify that Vault is fully functional and ready for `app.p
 ### Test 1: Test AppRole Authentication
 ```bash
 vault write auth/approle/login \
-    role_id="d94a4b18-8117-3da2-c3dc-58fcb2828451" \
-    secret_id="f8090830-efac-6f36-4e00-e31186c423c2"
+    role_id="" \
+    secret_id=""
 ```
 *Expected: Returns a client token with policy `translation-policy`.*
 
@@ -266,12 +266,12 @@ OPENAI_API_KEY=sk-proj-...
 VAULT_ADDR=https://172.24.71.152:8200
 VAULT_CACERT=/etc/pki/vault-ca.crt
 VAULT_TOKEN=hvs....
-VAULT_ROLE_ID=d94a4b18-8117-3da2-c3dc-58fcb2828451
-VAULT_SECRET_ID=f8090830-efac-6f36-4e00-e31186c423c2
+VAULT_ROLE_ID=
+VAULT_SECRET_ID=
 
 # OpenAI Secure Tunnel Configuration
-OPENAI_TUNNEL_ID="tunnel_6ad8adbeb0608191944746b4cac4cd63"
-CONTROL_PLANE_TUNNEL_ID="tunnel_6ad8adbeb0608191944746b4cac4cd63"
+OPENAI_TUNNEL_ID=""
+CONTROL_PLANE_TUNNEL_ID=""
 
 # Optional Server Settings
 DEBUG_PRINT=1
